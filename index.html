@@ -135,6 +135,58 @@
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    /* Modal styles */
+    #hireModal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background: rgba(0,0,0,0.7);
+    }
+
+    #hireModal .modal-content {
+      background-color: #1f2937;
+      margin: 10% auto;
+      padding: 2rem;
+      border: 1px solid #888;
+      width: 90%;
+      max-width: 600px;
+      color: white;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    #hireModal .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #hireBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #3b82f6;
+      color: white;
+      padding: 12px 18px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      cursor: pointer;
+      z-index: 1500;
+    }
+
+    #hireBtn:hover {
+      background-color: #2563eb;
+    }
   </style>
 </head>
 <body>
@@ -206,14 +258,12 @@
           <img src="https://i.imgur.com/jOXVoGF.png" alt="Certificate 1" style="width: 100%; border: 1px solid #ccc; border-radius: 8px;">
         </a>
       </div>
-
       <div style="flex: 1 1 300px;">
         <h3>Wipro Training Certificate</h3>
         <a href="https://i.imgur.com/evyCdlP.png" target="_blank">
           <img src="https://i.imgur.com/evyCdlP.png" alt="Wipro Certificate" style="width: 100%; border: 1px solid #ccc; border-radius: 8px;">
         </a>
       </div>
-
       <div style="flex: 1 1 300px;">
         <h3>24/7 Intouch Certificate</h3>
         <a href="https://i.imgur.com/QADHvtW.png" target="_blank">
@@ -224,8 +274,43 @@
     </div>
   </section>
 
+  <!-- Why Hire Me Button -->
+  <button id="hireBtn">✨ Why Hire Me?</button>
+
+  <!-- Modal -->
+  <div id="hireModal">
+    <div class="modal-content">
+  <span class="close" onclick="document.getElementById('hireModal').style.display='none'">&times;</span>
+  <h2>Why Hire Me?</h2>
+  <p style="text-align: left; line-height: 1.6;">
+    I won’t pretend to be the most experienced candidate out there. There will always be someone with a longer resume or a more polished portfolio.<br><br>
+    But what I do have is something deeper — a reason that fuels everything I do. I’m a father to a baby boy, and he is both my greatest strength and my greatest weakness.<br><br>
+    He’s the reason I wake up every day determined to grow, to learn fast, to push through challenges, and to deliver my best. He reminds me what’s at stake.<br><br>
+    I’m not just looking for a client — I’m looking for a chance to build a better future.<br><br>
+    <strong>This isn’t just work for me — it’s my way of building a future for my child while delivering real value to those who believe in me.</strong><br><br>
+    If you choose to work with me, you’re not just hiring someone who gets the job done — you’re hiring someone who puts his heart into every opportunity. And I won’t let you down.
+  </p>
+  <img src="https://i.imgur.com/ljGc3Fm.png" alt="Family Photo" style="margin-top: 1.5rem; max-width: 100%; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.4);">
+</div>
+  </div>
+
   <footer>
     <p>Portfolio Website © 2025 | Mark Lemuel Regalado</p>
   </footer>
+
+  <script>
+    const hireBtn = document.getElementById('hireBtn');
+    const hireModal = document.getElementById('hireModal');
+
+    hireBtn.addEventListener('click', () => {
+      hireModal.style.display = 'block';
+    });
+
+    window.onclick = function(event) {
+      if (event.target == hireModal) {
+        hireModal.style.display = 'none';
+      }
+    }
+  </script>
 </body>
 </html>
